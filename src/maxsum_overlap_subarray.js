@@ -26,6 +26,10 @@ var maxSumTwoNoOverlap = function(A, L, M) {
       LMax = Math.max(LMax, (prefix[i-M] - prefix[i-(L + M)]));
       MMax = Math.max(MMax, (prefix[i-L] - prefix[i-(L + M)]));
       
+      /* Take sum of M numbers in reverse starting from i and take the maxL, Take sum of L numbers in reverse starting from i and take the maxM
+      find the max from these two combinations, this will be the max for this range. i-(L+M) to i;
+      Compare it with the previous value to change the result value
+      */
       var currRes = Math.max(LMax + (prefix[i] - prefix[i-M]), MMax + (prefix[i] - prefix[i-L]));
       result = Math.max (result, currRes); 
     }
